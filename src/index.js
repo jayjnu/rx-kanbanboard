@@ -1,5 +1,3 @@
 import Suggest from './suggest'
 
-new Suggest('#suggestApp', {
-  viewer: '#suggestView'
-})
+new Suggest('suggestInput', 'suggestView')

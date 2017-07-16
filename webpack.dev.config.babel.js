@@ -7,7 +7,7 @@ export default merge(baseConfig, {
   devServer: {
     hot: true,
     overlay: true,
-    host: '0.0.0.0',
+    host: 'test.daum.net',
     port: 5050,
     open: true,
     openPage: ''
