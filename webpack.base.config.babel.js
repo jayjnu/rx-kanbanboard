@@ -8,7 +8,11 @@ export const OUT_PATH = path.resolve(__dirname, 'dist');
 export default {
   entry: SRC_PATH,
   resolve: {
-    extensions: ['.js', '.json']
+    extensions: ['.js', '.json'],
+    alias: {
+      src: path.resolve(__dirname, 'src'),
+      utils: path.resolve(__dirname, 'src/utils')
+    }
   },
   output: {
     filename: 'rx-kanban-bundle.js',

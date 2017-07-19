@@ -1,13 +1,8 @@
 import $ from 'jquery'
 import Rx from 'rxjs/Rx'
 import { suggestItemsList } from './templates'
-import { pipe } from '../utils'
+import { pipe, split, map, reduce } from '../utils'
 import _suggest from './core/suggest'
-
-// pipe helper higher order func
-const split = (delimiter) => (items) => items.map(item => item.split(delimiter))
-const map = (mapperFn) => (items) => items.map(mapperFn)
-const reduce = (reducer, initialValue) => (items) => items.reduce(reducer, initialValue)
 
 const fetchFrom = (url) => (q) => $.ajax({url: `${url}&q=${q}`, dataType: 'jsonp'})
 const toKeyValuePair = (item) => {
