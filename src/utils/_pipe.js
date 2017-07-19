@@ -1,0 +1,1 @@
+export const _pipe = (f, g) => (...args) => g(f(...args));

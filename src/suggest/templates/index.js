@@ -1,5 +1,5 @@
-import suggestListItems from './suggestListItems'
+const suggestItemsList = require('./suggest-items-list.hbs')
 
 export {
-  suggestListItems
+  suggestItemsList
 }

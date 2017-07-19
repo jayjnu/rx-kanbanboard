@@ -32,6 +32,11 @@ export default {
             cacheDirectory: true
           }
         }
+      },
+      {
+        test: /\.hbs$/,
+        exclude: /node_modules/,
+        loader: 'handlebars-loader'
       }
     ]
   }

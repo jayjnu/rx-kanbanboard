@@ -6,13 +6,34 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RX-Kanbanboard</title>
+    <style>
+        * {margin:0; padding:0}
+        li {list-style: none}
+        .screen-out {position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;}
+        #App {width:760px; margin: 0 auto;}
+        #suggestApp {width: 400px}
+        #suggestInput {
+            border: 1px solid deeppink;
+            width: 100%;
+        }
+        #suggestView {
+            display: none;
+            width: 100%;
+            border: 1px solid #f0f0f0;
+        }
+        #suggestView.on { display:block }
+        #suggestList li {overflow: hidden; padding: 10px 5% }
+        #suggestList li.on {background-color: #f0f0f0}
+        #suggestList .col-items { float: left; width: 65% }
+        #suggestList .col-items:first-child {width:25%}
+    </style>
 </head>
 <body>
     <div id="wrap">
         <div id="App">
             <div id="suggestApp">
                 <h3>서제스트 앱</h3>
-                <label for="suggestInput">검색</label>
+                <label for="suggestInput" class="screen-out">검색</label>
                 <input type="search" id="suggestInput" autocomplete="off"/>
                 <div id="suggestView">
                     <ul id="suggestList"></ul>
