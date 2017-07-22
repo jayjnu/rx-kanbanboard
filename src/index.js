@@ -48,6 +48,7 @@ const terminateKeyBinding = keyEventEmitter($suggestInput[0], {
     const idx = Math.min( Math.max($activeItem.index() + expected, 0), $lists.length - 1);
     $activeItem.removeClass('on');
     const $newActiveItem = $lists.eq(idx).addClass('on')
+    $suggestInput.val($newActiveItem.find('.desc-title').text());
   }
 })
 
