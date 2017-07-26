@@ -1,6 +1,5 @@
 import Rx from 'rxjs/Rx'
-import { mergeDeep } from 'utils/mergeDeep'
-import { pipe, split, map, reduce } from 'utils'
+import { mergeDeep } from 'src/utils/mergeDeep'
 
 const has = (args) => (arg) => args.includes(arg)
 const toExpectedOutput = (keymaps) => (code) => keymaps.filter(keymap => keymap.code === code)
@@ -21,12 +20,8 @@ const defaultConfig = {
       code: 13,
       expected: 0
     }
-  ],
-  onNext: (expected) => {},
-  onFail: (err) => {},
-  onComplete: () => {}
+  ]
 }
-
 
 export default (target, conf) => {
   const config = mergeDeep({}, defaultConfig, conf)
@@ -37,9 +32,4 @@ export default (target, conf) => {
     .filter(has(keymaps.map(keymap => keymap.code)))
     .map(toExpectedOutput(keymaps))
     .map((keymap) => keymap[0] ? keymap[0].expected : null)
-    .subscribe({
-      next: config.onNext,
-      error: config.onFail,
-      complete: config.onComplete
-    })
 }

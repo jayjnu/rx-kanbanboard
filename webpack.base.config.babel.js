@@ -1,14 +1,13 @@
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-
 export const SRC_PATH = path.resolve(__dirname, 'src');
 export const OUT_PATH = path.resolve(__dirname, 'dist');
 
 export default {
   entry: SRC_PATH,
   resolve: {
-    extensions: ['.js', '.json'],
+    extensions: ['.js', '.jsx', '.scss'],
     alias: {
       src: path.resolve(__dirname, 'src'),
       utils: path.resolve(__dirname, 'src/utils')
@@ -28,7 +27,7 @@ export default {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -38,9 +37,18 @@ export default {
         }
       },
       {
-        test: /\.hbs$/,
-        exclude: /node_modules/,
-        loader: 'handlebars-loader'
+        test: /\.s?css$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } }, {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: path.resolve(__dirname, 'postcss.config.js')
+              }
+            }
+          }
+        ]
       }
     ]
   }

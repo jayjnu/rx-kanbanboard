@@ -21,10 +21,5 @@ export default (input, conf) => {
     .skip(config.skip)
     .debounce(rxTimer(config.delay))
     .distinctUntilChanged()
-    .flatMap(mergeExternalStreamer(config.externalStreamer))
-    .subscribe({
-      next: config.onNext,
-      error: config.onError,
-      complete: config.onComplete
-    });
+    .flatMap(mergeExternalStreamer(config.externalStreamer));
 }

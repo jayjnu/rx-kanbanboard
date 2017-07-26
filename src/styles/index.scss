@@ -1,0 +1,24 @@
+@charset "UTF-8";
+@import 'reset.css';
+
+
+li {list-style: none}
+.screen-out {position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;}
+#App {width:760px; margin: 0 auto;}
+#suggestApp {width: 400px}
+#suggestInput {
+    border: 1px solid deeppink;
+    width: 100%;
+}
+#suggestView {
+    display: none;
+    width: 100%;
+    border: 1px solid #f0f0f0;
+    max-height: 500px;
+    overflow: auto;
+}
+#suggestView.on { display:block }
+#suggestList li {overflow: hidden; padding: 10px 5% }
+#suggestList li.on {background-color: #f0f0f0}
+#suggestList .col-items { float: left; width: 65% }
+#suggestList .col-items:first-child {width:25%}
